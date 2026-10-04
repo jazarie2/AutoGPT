@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   conflicts:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     permissions:
       contents: read
       pull-requests: write
@@ -38,7 +38,7 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     steps:
       - uses: codelytv/pr-size-labeler@v1
         with:
@@ -59,7 +59,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     steps:
       - uses: actions/labeler@v5
         with:

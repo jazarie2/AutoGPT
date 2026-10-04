@@ -29,7 +29,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     strategy:
       matrix:
         build-type: [release, dev]
@@ -87,7 +87,7 @@ jobs:
       continue-on-error: true
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     timeout-minutes: 10
 
     services:

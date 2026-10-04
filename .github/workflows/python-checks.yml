@@ -30,7 +30,7 @@ defaults:
 
 jobs:
   get-changed-parts:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -57,7 +57,7 @@ jobs:
 
   lint:
     needs: get-changed-parts
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     env:
       min-python-version: "3.10"
 
@@ -109,7 +109,7 @@ jobs:
 
   types:
     needs: get-changed-parts
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     env:
       min-python-version: "3.10"
 

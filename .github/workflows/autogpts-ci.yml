@@ -29,7 +29,7 @@ on:
 
 jobs:
   serve-agent-protocol:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     strategy:
       matrix:
         agent-name: [ autogpt ]

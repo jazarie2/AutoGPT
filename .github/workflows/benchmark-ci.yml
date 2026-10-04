@@ -35,7 +35,7 @@ jobs:
       matrix:
         python-version: ["3.10"]
         platform-os: [ubuntu, macos, macos-arm64, windows]
-    runs-on: ${{ matrix.platform-os != 'macos-arm64' && format('{0}-latest', matrix.platform-os) || 'macos-14' }}
+    runs-on: ${{ fromJSON(matrix.platform-os == 'ubuntu' && '["self-hosted","Linux","X64"]' || matrix.platform-os == 'macos' && '["self-hosted","macOS","ARM64"]' || matrix.platform-os == 'macos-arm64' && '["self-hosted","macOS","ARM64"]' || matrix.platform-os == 'windows' && '["self-hosted","Windows","X64"]' || '["self-hosted","unmapped-runner"]') }}
     defaults:
       run:
         shell: bash
@@ -99,7 +99,7 @@ jobs:
           flags: agbenchmark,${{ runner.os }}
 
   self-test-with-agent:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     strategy:
       matrix:
         agent-name: [ forge ]

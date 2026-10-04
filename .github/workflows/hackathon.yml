@@ -10,7 +10,7 @@ on:
 
 jobs:
   matrix-setup:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     # Service containers to run with `matrix-setup`
     services:
       # Label used to access the service container
@@ -55,7 +55,7 @@ jobs:
     env:
       min-python-version: "3.10"
     name: "${{ matrix.agent-name }}"
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     services:
       # Label used to access the service container
       postgres:

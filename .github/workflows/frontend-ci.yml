@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "Linux", "X64"]
     env:
       BUILD_BRANCH: ${{ format('frontend-build/{0}', github.ref_name) }}
 
